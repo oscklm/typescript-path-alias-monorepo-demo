@@ -1,6 +1,22 @@
 {
   "name": "@example/source",
+  "private": true,
   "version": "0.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "scripts": {
+    "build": "yarn workspace @example/bar run build && yarn workspace @example/foo run build",
+    "start": "yarn workspace @example/bar run start && yarn workspace @example/foo run start"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "typescript": "^5.7.3"
+  }
 }
